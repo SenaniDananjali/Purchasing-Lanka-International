@@ -1,0 +1,20 @@
+<div>
+    <h2 class="col-lg-3">Find your Delivery Person near by Your Location </h2><br>
+  <div>
+    <label>Your Location: </label>
+    <input list="loc_list">
+    <datalist id="loc_list">
+      <option *ngFor="let loc of location" [value]="loc">
+
+    </datalist>
+  </div>
+
+  <div>
+    <label>His/ Her Name: </label>
+    <input list="name_list">
+    <datalist id="name_list">
+      <option *ngFor="let name of name_of_freelancer" [value]="name">
+
+    </datalist>
+  </div>
+</div>

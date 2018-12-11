@@ -1,21 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomePageComponent } from './home-page.component';
+import { FreelacerPageComponent } from './freelacer-page.component';
 import {describe, expect} from "@angular/core/testing/src/testing_internal";
 
-describe('HomePageComponent', () => {
-  let component: HomePageComponent;
-  let fixture: ComponentFixture<HomePageComponent>;
+describe('FreelacerPageComponent', () => {
+  let component: FreelacerPageComponent;
+  let fixture: ComponentFixture<FreelacerPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HomePageComponent ]
+      declarations: [ FreelacerPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(HomePageComponent);
+    fixture = TestBed.createComponent(FreelacerPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

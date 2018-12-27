@@ -7,6 +7,7 @@ import { FreelacerPageComponent } from './freelacer-page/freelacer-page.componen
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SignInComponent } from './sign-in/sign-in.component';
+import { LogInComponent } from './log-in/log-in.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SignInComponent } from './sign-in/sign-in.component';
     FreelacerPageComponent,
     HeaderComponent,
     FooterComponent,
-    SignInComponent
+    SignInComponent,
+    LogInComponent
   ],
   imports: [
     BrowserModule

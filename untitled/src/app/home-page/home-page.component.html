@@ -1,17 +1,14 @@
 <div class="parallax">
-
-
   <div class=" pt" style="background-color: rgba(85,85,85,0.82);text-align: center">
     <div class="pt-6">
       <h1 class="" style="text-align: center; ">{{subtitle}}</h1><br>
-
     </div>
+
     <div class="">
       <label style="font-size: 200%">Your Location: </label>
       <input style="width:500px;font-size: 120%" list="loc_list">
       <datalist id="loc_list">
         <option *ngFor="let loc of location" [value]="loc">
-
       </datalist>
     </div>
 
@@ -22,11 +19,11 @@
         <option *ngFor="let name of name_of_freelancer" [value]="name">
       </datalist>
     </div>
-  </div>
-  <div class="row ">
-    <div class="col-lg-8"></div>
-    <div class="col-lg-4">
-      <button class=" p-0.5 " style="font-size: 120%"> Search</button>
+    <div class="row ">
+      <div class="col-lg-7"></div>
+      <div class="col-lg-4">
+        <button class=" p-0.5 " style="font-size: 120%" > Search</button>
+      </div>
     </div>
   </div>
 

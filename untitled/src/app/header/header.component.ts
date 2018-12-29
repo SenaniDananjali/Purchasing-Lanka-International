@@ -17,6 +17,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.title = 'Purchasing Lanka';
+    console.log("header ins")
   }
 
 }

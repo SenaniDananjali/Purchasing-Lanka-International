@@ -8,6 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { LogInComponent } from './log-in/log-in.component';
+import { FreelancerCardsComponent } from './freelancer-cards/freelancer-cards.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { LogInComponent } from './log-in/log-in.component';
     HeaderComponent,
     FooterComponent,
     SignInComponent,
-    LogInComponent
+    LogInComponent,
+    FreelancerCardsComponent
   ],
   imports: [
     BrowserModule

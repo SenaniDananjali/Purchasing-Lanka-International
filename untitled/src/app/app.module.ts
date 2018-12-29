@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { LogInComponent } from './log-in/log-in.component';
 import { FreelancerCardsComponent } from './freelancer-cards/freelancer-cards.component';
+import { CalendarComponent } from './calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FreelancerCardsComponent } from './freelancer-cards/freelancer-cards.co
     FooterComponent,
     SignInComponent,
     LogInComponent,
-    FreelancerCardsComponent
+    FreelancerCardsComponent,
+    CalendarComponent
   ],
   imports: [
     BrowserModule

@@ -1,0 +1,10 @@
+mat-grid-tile {
+  background: lightblue;
+}
+.col{
+  float: left;
+  width: 20%;
+}
+.row{
+  padding-bottom: 40%;
+}

@@ -1,0 +1,416 @@
+<?php
+/**
+ * User: senani
+ * Date: 12/27/17
+ * Time: 9:32 AM
+ */
+ include_once("../config/dbconfig.php");
+ header('Content-Type: application/json', true, 200);
+ header('Access-Control-Allow-Origin: *',true,200);
+ header('charset: utf-8',true,200);
+
+function getPorfilePic(){
+  //-------------connection set up-----------
+  $dbconfig = new dbconfig;
+  $con = ($dbconfig -> connection());
+  //-------------connection set up-----------
+
+  $details = "SELECT id , profile_id, image_path FROM gallery";
+  $result = $con->query($details);
+
+  $rst = array();
+
+  if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+          $myObj = new stdClass();
+          $myObj->id =  $row["id"];
+          $myObj->profile_id = $row["profile_id"];
+          $imagedata = file_get_contents($row["image_path"]);
+          $base64 = base64_encode($imagedata);
+          $myObj->image_path=$base64;
+
+          array_push($rst, $myObj);
+
+        }
+        // echo  implode(" ",$rst);
+        $myJSON = json_encode($rst);
+
+        echo $myJSON;
+    } else {
+        echo "0 results";
+    }
+
+  $con->close();
+}
+function getBusyDates(){
+  //-------------connection set up-----------
+  $dbconfig = new dbconfig;
+  $con = ($dbconfig -> connection());
+  //-------------connection set up-----------
+
+  $details = "SELECT bd.deliveryPerson_id as dp, bd.date as busy , ts.slot as slot FROM busyDates bd, timeSlot ts WHERE bd.time_slot_id= ts.id";
+
+  $result = $con->query($details);
+  $rst = array();
+
+  if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+          $myObj = new stdClass();
+          $myObj->dp =  $row["dp"];
+          $myObj->busy = $row["busy"];
+          $myObj->slot = $row["slot"];
+
+          array_push($rst, $myObj);
+          // echo json_encode($myObj);
+      }
+      // echo  implode(" ",$rst);
+      $myJSON = json_encode($rst);
+
+      echo $myJSON;
+  } else {
+      echo "0 results";
+  }
+
+  $con->close();
+}
+function getPreferredLocations(){
+  //-------------connection set up-----------
+  $dbconfig = new dbconfig;
+  $con = ($dbconfig -> connection());
+  //-------------connection set up-----------
+
+  $details = "SELECT deliveryPeople.id as dp, locations.city as loc FrOM 
+  deliveryPeople, preferredLocations, locations WHERE 
+  preferredLocations.deliveryPerson_id = deliveryPeople.id && preferredLocations.location_id = locations.id";
+
+  $result = $con->query($details);
+  $rst = array();
+
+  if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+          $myObj = new stdClass();
+          $myObj->dp_id =  $row["dp"];
+          $myObj->loc = $row["loc"];
+          array_push($rst, $myObj);
+      }
+      $myJSON = json_encode($rst);
+      echo $myJSON;
+  } else {
+      echo "0 results";
+  }
+
+  $con->close();
+}
+function getSkills(){
+  //-------------connection set up-----------
+  $dbconfig = new dbconfig;
+  $con = ($dbconfig -> connection());
+  //-------------connection set up-----------
+
+  $details = "SELECT id , description FROM skills";
+
+  $result = $con->query($details);
+  $rst = array();
+
+  if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+          $myObj = new stdClass();
+          $myObj->id =  $row["id"];
+          $myObj->description = $row["description"];
+
+          array_push($rst, $myObj);
+          // echo json_encode($myObj);
+      }
+      // echo  implode(" ",$rst);
+      $myJSON = json_encode($rst);
+
+      echo $myJSON;
+  } else {
+      echo "0 results";
+  }
+
+  $con->close();
+
+}
+function getDeliveryPeoplesDetails(){
+  //-------------connection set up-----------
+  $dbconfig = new dbconfig;
+  $con = ($dbconfig -> connection());
+  //-------------connection set up-----------
+
+  $details = "SELECT id,first_name, last_name, description FROM deliveryPeople";
+
+  $result = $con->query($details);
+  $rst = array();
+
+  if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+          $myObj = new stdClass();
+          $myObj->id =  $row["id"];
+          $myObj->first_name =  $row["first_name"];
+          $myObj->last_name =  $row["last_name"];
+          $myObj->description = $row["description"];
+
+          array_push($rst, $myObj);
+          // echo json_encode($myObj);
+      }
+      // echo  implode(" ",$rst);
+      $myJSON = json_encode($rst);
+
+      echo $myJSON;
+  } else {
+      echo "0 results";
+  }
+
+  $con->close();
+}
+function getStylistSkills(){
+  //-------------connection set up-----------
+  $dbconfig = new dbconfig;
+  $con = ($dbconfig -> connection());
+  //-------------connection set up-----------
+
+  $details = "SELECT stylist.id as sty, stylist.description as des , skills.description as skill FrOM stylist, stylistSkillMapping, skills
+     WHERE stylistSkillMapping.skill_id = skills.id && stylist.id = stylistSkillMapping.stylist_id";
+
+   $result = $con->query($details);
+   $rst = array();
+
+   if ($result->num_rows > 0) {
+       // output data of each row
+       while($row = $result->fetch_assoc()) {
+           $myObj = new stdClass();
+           $myObj->id =  $row["sty"];
+           $myObj->skill = $row["skill"];
+           $myObj->des = $row["des"];
+
+           array_push($rst, $myObj);
+           // echo json_encode($myObj);
+       }
+       // echo  implode(" ",$rst);
+       $myJSON = json_encode($rst);
+
+       echo $myJSON;
+   } else {
+       echo "0 results";
+   }
+
+   $con->close();
+}
+function getJobRole(){
+  //-------------connection set up-----------
+  $dbconfig = new dbconfig;
+  $con = ($dbconfig -> connection());
+  //-------------connection set up-----------
+
+  $details = "SELECT  stylist.id as sty ,jobRole.role as job from jobRole,stylist
+  WHERE jobRole.id =stylist.job_role";
+  $result = $con->query($details);
+
+  $rst = array();
+
+  if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+          $myObj = new stdClass();
+          $myObj->sty_id =  $row["sty"];
+          $myObj->job = $row["job"];
+          array_push($rst, $myObj);
+
+        }
+        // echo  implode(" ",$rst);
+        $myJSON = json_encode($rst);
+
+        echo $myJSON;
+    } else {
+        echo "0 results";
+    }
+
+  $con->close();
+}
+function job(){
+  //-------------connection set up-----------
+  $dbconfig = new dbconfig;
+  $con = ($dbconfig -> connection());
+  //-------------connection set up-----------
+
+  $details = "SELECT jobRole.role as job FROM jobRole";
+  $result = $con->query($details);
+
+  $rst = array();
+
+  if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+          $myObj = new stdClass();
+          $myObj->job = $row["job"];
+          array_push($rst, $myObj);
+
+        }
+        // echo  implode(" ",$rst);
+        $myJSON = json_encode($rst);
+
+        echo $myJSON;
+    } else {
+        echo "0 results";
+    }
+
+  $con->close();
+
+}
+function locationForSearch(){
+  //-------------connection set up-----------
+  $dbconfig = new dbconfig;
+  $con = ($dbconfig -> connection());
+  //-------------connection set up-----------
+
+  $details = "SELECT locations.city as city FROM locations";
+  $result = $con->query($details);
+
+  $rst = array();
+
+  if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+          $myObj = new stdClass();
+          $myObj->city = $row["city"];
+          array_push($rst, $myObj);
+
+        }
+        // echo  implode(" ",$rst);
+        $myJSON = json_encode($rst);
+
+        echo $myJSON;
+    } else {
+        echo "0 results";
+    }
+
+  $con->close();
+}
+function getFullDetails($id){
+  //-------------connection set up-----------
+  $dbconfig = new dbconfig;
+  $con = ($dbconfig -> connection());
+  //-------------connection set up-----------
+
+  $details = "SELECT stylist.id as id, stylist.first_name as fname ,stylist.last_name as lname,jobRole.role as job,stylist.description as des,locations.city as loc ,skills.description as skill, gallery.image_path as prof_pic, gallery.gallery_path as gal_path
+  FROM stylist,locations,preferredLocations,skills,stylistSkillMapping,jobRole,gallery
+  WHERE stylist.id=preferredLocations.stylist_id && stylist.id=gallery.profile_id && locations.id=preferredLocations.location_id &&skills.id =stylistSkillMapping.skill_id &&stylistSkillMapping.stylist_id=stylist.id && jobRole.id=stylist.job_role ";
+
+  $result = $con->query($details);
+  $rst = array();
+  $skill = array();
+  $prefered_locations=array();
+  $gallery=array();
+
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+      if($id == $row["id"]){
+        $myObj = new stdClass();
+        $myObj->sty_id =  $row["id"];
+        $myObj->first_name =  $row["fname"];// fname
+        $myObj->last_name =  $row["lname"];//lname
+        $myObj->job =  $row["job"];//job role
+        $myObj->des =  $row["des"];//description
+        //skills
+        if(in_array($row["skill"],$skill)!=1){
+          array_push($skill,$row["skill"]);
+        }
+        //preffered locations
+        if(in_array($row["loc"],$prefered_locations)!=1){
+          array_push($prefered_locations,$row["loc"]);
+        }
+        //profile_pic
+        if(in_array( base64_encode(file_get_contents($row["gal_path"].$id.'/profile/sty_prof.jpg')),$gallery)!=1){
+          $imagedata=file_get_contents($row["gal_path"].$id.'/profile/sty_prof.jpg');
+          $base64 = base64_encode($imagedata);
+          array_push($gallery,$base64);
+        }
+        //gallery
+        for($i=1;$i<5;$i++){
+          if(in_array( base64_encode(file_get_contents($row["gal_path"].$id.'/'.$i.'.jpg')),$gallery)!=1){
+            $imagedata=file_get_contents($row["gal_path"].$id.'/'.$i.'.jpg');
+            $base64 = base64_encode($imagedata);
+            array_push($gallery,$base64);
+          }
+        }
+        //passsing array objects
+        $myObj->loc =  $prefered_locations;
+        $myObj->skill =  $skill;
+        $myObj->gallery =  $gallery;
+
+
+      }
+    }
+    array_push($rst, $myObj);
+    //json encoding
+    $myJSON = json_encode($rst);
+    echo $myJSON;
+  } else {
+      echo "0 results";
+  }
+
+  $con->close();
+
+}
+function getCharges($id){
+
+  $dbconfig = new dbconfig;
+  $con = ($dbconfig -> connection());
+  //-------------connection set up-----------
+
+  $details = "SELECT deliverypeople.id as dp_id, timeSlot.slot as slot, 
+  chargePerKm.charge as charge , chargePerKm.currency as currency FROM 
+  deliverypeople, timeSlot,chargePerKm WHERE
+  deliverypeople.id = chargePerKm.deliveryPerson_id && chargePerKm.time_slot_id=timeSlot.id";
+  //-------------connection set up-----------;
+  $result = $con->query($details);
+
+  $rst = array();
+
+  if ($result->num_rows > 0) {
+      // output data of each row
+      while($row = $result->fetch_assoc()) {
+        if($id==$row["dp_id"]){
+        $myObj = new stdClass();
+        $myObj->dp_id = $row["dp_id"];
+        $myObj->slot =  $row["slot"];
+        $myObj->charge = $row["charge"];
+        $myObj->currency = $row["currency"];
+        array_push($rst, $myObj);
+      }
+
+      }
+        // echo  implode(" ",$rst);
+        $myJSON = json_encode($rst);
+        echo $myJSON;
+  } else {
+      echo "0 results";
+  }
+
+  $con->close();
+}
+
+//--------------call functions-----------------
+function call(){
+  if(function_exists($_GET['f'])){
+    if(isset($_GET['id'])){
+     $_GET['f']($_GET['id']) ;
+     // echo $_GET['id'];
+    }
+    else {
+    $_GET['f']();
+    }
+
+  }
+}
+
+call();
+
+?>

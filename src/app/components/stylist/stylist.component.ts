@@ -28,7 +28,7 @@ export class StylistComponent implements OnInit {
     });
 
     this.amount = 150;
-    this.currency = '$';
+    this.currency = 'Rs';
     this.galleryPath = ['../../../assets/galery1.jpg', '../../../assets/galery2.jpg', '../../../assets/galery3.jpg', '../../../assets/galery4.jpg', '../../../assets/galery5.jpg', '../../../assets/galery6.jpg', '../../../assets/galery7.jpg'];
 
     this.dataService.getProfPic().subscribe((profPics) => {

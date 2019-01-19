@@ -34,6 +34,7 @@ export class CardsComponent implements OnInit {
   ngOnInit() {
     this.dataService.getLocationsForSearch().subscribe((locForSearch) => {
       this.locForSearch = locForSearch;
+      console.log(this.locForSearch);
 
     });
 
@@ -42,6 +43,11 @@ export class CardsComponent implements OnInit {
       this.profPics = profPics;
       console.log("inside get prof pics");
     });
+
+    this.dataService.getNames().subscribe((names) => {
+      this.names = names;
+    });
+
     // this.dataService.getFullDetails().subscribe((full) => {
     //   this.full = full;
     // });

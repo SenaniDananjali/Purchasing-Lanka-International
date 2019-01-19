@@ -9,9 +9,10 @@
           <li class="p-2 title search-class text-center" *ngIf="query.hasOwnProperty('job')">{{' '+query.job+' '}}</li>
         </ul>
       </div>
-      <div class="mt-2" *ngIf="query.type=='Stylist name'">
+      <div class="mt-2" *ngIf="query.type=='name'">
         <div class="mt-1 container card-back border border-secondary rounded" *ngFor="let name of names ">
           <div class=" container" *ngFor="let pic of profPics">
+
             <div
               *ngIf="name.first_name+' '+name.last_name===query.ss ||name.first_name==query.ss ||name.last_name==query.ss">
               <div *ngIf="name.id==pic.profile_id">

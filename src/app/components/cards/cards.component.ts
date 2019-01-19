@@ -40,13 +40,14 @@ export class CardsComponent implements OnInit {
 
     this.dataService.getProfPic().subscribe((profPics) => {
       this.profPics = profPics;
+      console.log("inside get prof pics");
     });
     // this.dataService.getFullDetails().subscribe((full) => {
     //   this.full = full;
     // });
     this.route.queryParams.subscribe(v => {
       this.query = v;
-      console.log(this.namesSk);
+      console.log(this.query);
     });
 
     this.dataService.getCharges(1).subscribe((charges) => {
@@ -73,6 +74,8 @@ export class CardsComponent implements OnInit {
       console.log(this.namesSk);
       this.dataService.getNames().subscribe((names) => {
         this.names = names;
+        console.log("dfghjklkjhgfgchjkn");
+        console.log(this.names);
       });
 
       this.dataService.getLocations().subscribe((loc) => {

@@ -14,7 +14,7 @@
           <div class=" container" *ngFor="let pic of profPics">
 
             <div
-              *ngIf="name.first_name+' '+name.last_name===query.ss ||name.first_name==query.ss ||name.last_name==query.ss">
+              *ngIf="(name.first_name+' '+name.last_name)===query.ss ||name.first_name==query.ss ||name.last_name==query.ss">
               <div *ngIf="name.id==pic.profile_id">
                 <div class="row">
                   <div class="col-lg-3">

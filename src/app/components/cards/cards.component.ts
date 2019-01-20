@@ -388,7 +388,7 @@ interface Job {
 
 
 interface Preferred {
-  sty_id: number;
+  dp_id: number;
   loc: string;
 }
 
@@ -407,7 +407,7 @@ interface Full {
 }
 
 interface Chargers {
-  sty_id: number;
+  dp_id: number;
   slot: string;
   charge: number;
   currency: string;

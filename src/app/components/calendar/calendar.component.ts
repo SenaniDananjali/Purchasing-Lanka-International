@@ -65,7 +65,7 @@ export class CalendarComponent implements OnInit {
 
   datesForStylist(sty) {
     for (let i = 0; i < this.dates.length; i++) {
-      if (sty === this.dates[i].stylist) {
+      if (sty === this.dates[i].dp) {
         const bd: any = {};
         bd.busy = this.dates[i].busy;
         bd.slot = this.dates[i].slot;
@@ -120,7 +120,7 @@ interface Details {
 }
 
 interface Dates {
-  stylist: number;
+  dp: number;
   busy: string;
   slot: string;
 }

@@ -15,7 +15,7 @@ export class SearchComponent implements OnInit {
   constructor(private dataService: DataService) {
   }
 
-  radioData = 'Stylist name';
+  radioData = 'name';
 
   selected: boolean;
   search = '';

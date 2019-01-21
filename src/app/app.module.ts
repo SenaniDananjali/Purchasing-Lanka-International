@@ -33,7 +33,7 @@ const appRoutes: Routes = [
   {path: 'searchCards', component: CardsComponent},
   // {path: '', component: SearchComponent},
   {path: 'advancedSearch', component: AdvancedsearchComponent},
-  {path:'signup',component:SignupComponent},
+  {path:'signup',component:SignupComponent},//
   {path:'login',component:LoginComponent}
 ];
 

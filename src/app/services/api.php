@@ -49,7 +49,9 @@ function getBusyDates(){
   $con = ($dbconfig -> connection());
   //-------------connection set up-----------
 
-  $details = "SELECT bd.deliveryPerson_id as dp, bd.date as busy , ts.slot as slot FROM busyDates bd, timeSlot ts WHERE bd.time_slot_id= ts.id";
+  $details = "
+  SELECT bd.deliveryPerson_id as dp, bd.date as busy , ts.slot as slot FROM busyDates bd, timeSlot ts ,jobrole as job 
+  WHERE bd.time_slot_id= ts.id && job.id=1 ";
 
   $result = $con->query($details);
   $rst = array();
@@ -61,7 +63,7 @@ function getBusyDates(){
           $myObj->dp =  $row["dp"];
           $myObj->busy = $row["busy"];
           $myObj->slot = $row["slot"];
-
+			
           array_push($rst, $myObj);
           // echo json_encode($myObj);
       }
@@ -81,9 +83,9 @@ function getPreferredLocations(){
   $con = ($dbconfig -> connection());
   //-------------connection set up-----------
 
-  $details = "SELECT deliveryPeople.id as dp, locations.city as loc FrOM 
-  deliveryPeople, preferredLocations, locations WHERE 
-  preferredLocations.deliveryPerson_id = deliveryPeople.id && preferredLocations.location_id = locations.id";
+  $details = "SELECT deliveryPeople.id as dp, locations.city as loc 
+  FrOM deliveryPeople, preferredLocations, locations, jobrole 
+  WHERE preferredLocations.deliveryPerson_id = deliveryPeople.id && preferredLocations.location_id = locations.id && jobrole.id=1";
 
   $result = $con->query($details);
   $rst = array();
@@ -142,7 +144,7 @@ function getDeliveryPeoplesDetails(){
   $con = ($dbconfig -> connection());
   //-------------connection set up-----------
 
-  $details = "SELECT id,first_name, last_name, description FROM deliveryPeople";
+  $details = "SELECT dp.id,dp.first_name, dp.last_name, dp.description FROM deliveryPeople as dp, jobrole WHERE jobrole.id=1";
 
   $result = $con->query($details);
   $rst = array();
@@ -365,10 +367,10 @@ function getCharges($id){
   $con = ($dbconfig -> connection());
   //-------------connection set up-----------
 
-  $details = "SELECT deliverypeople.id as dp_id, timeSlot.slot as slot, 
+  $details = "SELECT deliverypeople.id as dp_id, timeSlot.slot as slot,  deliverypeople.job_role as jr,	
   chargePerKm.charge as charge , chargePerKm.currency as currency FROM 
   deliverypeople, timeSlot,chargePerKm WHERE
-  deliverypeople.id = chargePerKm.deliveryPerson_id && chargePerKm.time_slot_id=timeSlot.id";
+  deliverypeople.id = chargePerKm.deliveryPerson_id && chargePerKm.time_slot_id=timeSlot.id  && deliverypeople.job_role=1";
   //-------------connection set up-----------;
   $result = $con->query($details);
 

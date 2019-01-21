@@ -22,6 +22,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SafeHtmlPipe} from './safe-html.pipe';
 import { SignupComponent } from './components/signup/signup.component';
+import { LoginComponent } from './components/login/login.component';
 
 
 
@@ -32,7 +33,8 @@ const appRoutes: Routes = [
   {path: 'searchCards', component: CardsComponent},
   // {path: '', component: SearchComponent},
   {path: 'advancedSearch', component: AdvancedsearchComponent},
-  {path:'login',component:SignupComponent}
+  {path:'signup',component:SignupComponent},
+  {path:'login',component:LoginComponent}
 ];
 
 @NgModule({
@@ -48,6 +50,7 @@ const appRoutes: Routes = [
     ParallaxComponent,
     SafeHtmlPipe,
     SignupComponent,
+    LoginComponent,
 
 
   ],

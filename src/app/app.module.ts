@@ -31,7 +31,8 @@ const appRoutes: Routes = [
   {path: 'dp', component: StylistComponent},
   {path: 'searchCards', component: CardsComponent},
   // {path: '', component: SearchComponent},
-  {path: 'advancedSearch', component: AdvancedsearchComponent}
+  {path: 'advancedSearch', component: AdvancedsearchComponent},
+  {path:'login',component:SignupComponent}
 ];
 
 @NgModule({

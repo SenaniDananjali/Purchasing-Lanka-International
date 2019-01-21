@@ -376,7 +376,7 @@ interface ProfPics {
 }
 
 interface StylistSkills {
-  id: number; // stylist Id
+  id: number; // dp Id
   skill: string;
   des: string;
 }

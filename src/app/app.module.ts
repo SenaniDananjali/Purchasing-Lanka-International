@@ -9,7 +9,7 @@ import {HeaderComponent} from './components/header/header.component';
 import {SearchComponent} from './components/search/search.component';
 import {CardsComponent} from './components/cards/cards.component';
 import {FooterComponent} from './components/footer/footer.component';
-import {StylistComponent} from './components/stylist/stylist.component';
+import {StylistComponent} from './components/dp/stylist.component';
 import {AdvancedsearchComponent} from './components/advancedsearch/advancedsearch.component';
 import {ParallaxComponent} from './components/parallax/parallax.component';
 import {DataService} from './services/data.service';
@@ -28,7 +28,7 @@ import { SignupComponent } from './components/signup/signup.component';
 
 const appRoutes: Routes = [
   {path: '', component: ParallaxComponent},
-  {path: 'stylist', component: StylistComponent},
+  {path: 'dp', component: StylistComponent},
   {path: 'searchCards', component: CardsComponent},
   // {path: '', component: SearchComponent},
   {path: 'advancedSearch', component: AdvancedsearchComponent}

@@ -1,10 +1,7 @@
 <div class="back">
   <div class="container">
-    <li>bvbvcfx</li>
-
     <div class=" pt-2 pb-2 row ">
       <div class=" col-md-2">
-
         <div *ngFor="let pic of profPics">
           <div *ngIf="pic.profile_id==query.id">
             <img class="profile" src="data:image/jpg;base64,{{pic.image_path}}" alt="profile" width="150" height="150">

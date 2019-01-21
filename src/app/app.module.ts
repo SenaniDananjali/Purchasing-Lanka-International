@@ -21,6 +21,7 @@ import {MatButtonModule, MatCheckboxModule, MatFormFieldModule, MatInputModule, 
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SafeHtmlPipe} from './safe-html.pipe';
+import { SignupComponent } from './components/signup/signup.component';
 
 
 
@@ -45,6 +46,7 @@ const appRoutes: Routes = [
     AdvancedsearchComponent,
     ParallaxComponent,
     SafeHtmlPipe,
+    SignupComponent,
 
 
   ],

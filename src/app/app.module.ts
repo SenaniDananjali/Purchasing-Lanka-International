@@ -9,7 +9,7 @@ import {HeaderComponent} from './components/header/header.component';
 import {SearchComponent} from './components/search/search.component';
 import {CardsComponent} from './components/cards/cards.component';
 import {FooterComponent} from './components/footer/footer.component';
-import {StylistComponent} from './components/dp/stylist.component';
+import {DpComponent} from './components/dp/dp.component';
 import {AdvancedsearchComponent} from './components/advancedsearch/advancedsearch.component';
 import {ParallaxComponent} from './components/parallax/parallax.component';
 import {DataService} from './services/data.service';
@@ -28,11 +28,11 @@ import { SignupComponent } from './components/signup/signup.component';
 
 const appRoutes: Routes = [
   {path: '', component: ParallaxComponent},
-  {path: 'dp', component: StylistComponent},
+  {path: 'dp', component:DpComponent},
   {path: 'searchCards', component: CardsComponent},
   // {path: '', component: SearchComponent},
   {path: 'advancedSearch', component: AdvancedsearchComponent},
-  {path:'login',component:SignupComponent}
+  {path:'signin',component:SignupComponent}
 ];
 
 @NgModule({
@@ -42,7 +42,7 @@ const appRoutes: Routes = [
     SearchComponent,
     CardsComponent,
     FooterComponent,
-    StylistComponent,
+    DpComponent,
     CalendarComponent,
     AdvancedsearchComponent,
     ParallaxComponent,

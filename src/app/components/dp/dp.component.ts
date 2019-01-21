@@ -3,11 +3,11 @@ import {ActivatedRoute} from '@angular/router';
 import {DataService} from '../../services/data.service';
 
 @Component({
-  selector: 'app-stylist',
-  templateUrl: './stylist.component.html',
-  styleUrls: ['./stylist.component.css']
+  selector: 'app-dp',
+  templateUrl: './dp.component.html',
+  styleUrls: ['./dp.component.css']
 })
-export class StylistComponent implements OnInit {
+export class DpComponent implements OnInit {
   amount: number;
   currency: string;
   galleryPath: string[];

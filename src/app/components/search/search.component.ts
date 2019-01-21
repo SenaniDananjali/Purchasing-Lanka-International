@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService} from '../../services/data.service';
-import { BsModalService} from 'ngx-bootstrap';
+import {BsModalService} from 'ngx-bootstrap';
 
 
 @Component({
@@ -9,8 +9,9 @@ import { BsModalService} from 'ngx-bootstrap';
   styleUrls: ['./search.component.css']
 })
 export class SearchComponent implements OnInit {
-  skills: Skills[];
+  prefLocations: PrefLocations[];
   names: Names[];
+  allLocs: AllLocs[];
 
   constructor(private dataService: DataService) {
   }
@@ -23,10 +24,15 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
     this.selected = true;
 
-    this.dataService.getSkills().subscribe((skills) => {
-      this.skills = skills;
-
+    this.dataService.getPrefferedLocations().subscribe((prefLocations) => {
+      this.prefLocations = prefLocations;
     });
+
+    this.dataService.getLocations().subscribe((allLocs) => {
+      this.allLocs = allLocs;
+      console.log(this.allLocs);
+    });
+
     this.dataService.getNames().subscribe((names) => {
       this.names = names;
     });
@@ -44,9 +50,13 @@ export class SearchComponent implements OnInit {
 
 }
 
-interface Skills {
-  id: number;
-  description: string;
+interface PrefLocations {
+  dp_id: number;
+  loc: string;
+}
+
+interface AllLocs {
+  city: string;
 }
 
 interface Names {

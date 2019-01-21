@@ -8,7 +8,7 @@
   <div class="text-center p-2">
     <div>
       <input type="radio" name="searchType" checked [(ngModel)]="radioData" value="name">Search by Name
-      <input  type="radio" name="searchType" [(ngModel)]="radioData" value="location">Search by location
+      <input type="radio" name="searchType" [(ngModel)]="radioData" value="location">Search by location
     </div>
     <div>
 
@@ -22,35 +22,32 @@
       <div *ngIf="(radioData==='location')">
         <label class="col-lg-3">Search your Delivery Person by {{radioData}} </label>
         <input list="suggestions_skill" style="width:500px" [(ngModel)]="search" [ngModelOptions]="{standalone: true}">
-
         <datalist id="suggestions_skill">
-          <option *ngFor="let skill of skills" [value]="skill.description">
+          <option *ngFor="let loc of allLocs" [value]="loc.loc">
         </datalist>
       </div>
-
     </div>
     <div class="row ">
       <div class="col-lg-8"></div>
       <div class="advancedSearch col-lg-3 col-lg-offset-9 ">
-
-        <button  class="adva-search p-0.5 "  routerLink="/searchCards" [queryParams]="{type:radioData ,ss:search }"> Search</button>
-
+        <button class="adva-search p-0.5 " routerLink="/searchCards" [queryParams]="{type:radioData ,ss:search }">
+          Search
+        </button>
       </div>
     </div>
-
   </div>
-
 
 </form>
 <div class="row ">
   <div class="col-lg-1"></div>
   <div class="advancedSearch col-lg-3 col-lg-offset-9 ">
-    <button class="adva-search p-0.5 " data-toggle="modal" data-target="#searchAdva" >Advanced Search</button>
+    <button class="adva-search p-0.5 " data-toggle="modal" data-target="#searchAdva">Advanced Search</button>
   </div>
 
 
 </div>
-<div class="modal fade container" id="searchAdva" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true" >
+<div class="modal fade container" id="searchAdva" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+     aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

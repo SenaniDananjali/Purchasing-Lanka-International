@@ -23,6 +23,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {SafeHtmlPipe} from './safe-html.pipe';
 import { SignupComponent } from './components/signup/signup.component';
 import { LoginComponent } from './components/login/login.component';
+import { BookingDetailsComponent } from './components/booking-details/booking-details.component';
 
 
 
@@ -51,6 +52,7 @@ const appRoutes: Routes = [
     SafeHtmlPipe,
     SignupComponent,
     LoginComponent,
+    BookingDetailsComponent,
 
 
   ],

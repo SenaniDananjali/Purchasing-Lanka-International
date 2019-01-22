@@ -100,11 +100,11 @@
   <div class="container">
     <h3 align="center" style="color: rgba(248,255,139,0.76)">Your Bookings</h3>
     <table class="container">
-       <tr class="container" *ngIf="slotDetails.length === 0">
+      <tr class="container" *ngIf="slotDetails.length === 0">
         <td style="text-align: center">
           No Selected Sessions
         </td>
-       </tr>
+      </tr>
       <tr class="container" *ngFor="let booking of slotDetails">
         <td style="text-align: center">
           {{booking}}
@@ -117,11 +117,32 @@
   </div>
   <div align="right" class="pr-3  ">
 
-    <button class="btn mt-1 btn-md btn-success" *ngIf="slotDetails.length>0"
-            style="background-color: #6159ff ; width: auto; color: white"> Book above
+    <button class="btn mt-1 btn-md btn-success" data-toggle="modal" *ngIf="slotDetails.length>0"
+            style="background-color: #6159ff ; width: auto; color: white" data-target="#bookingInfo"> Book above
       {{count}} slots
     </button>
 
+  </div>
+  <div class="modal fade container" id="bookingInfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+       aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle"> Booking Info</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <app-booking-details></app-booking-details>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+
+        </div>
+      </div>
+    </div>
   </div>
 
 

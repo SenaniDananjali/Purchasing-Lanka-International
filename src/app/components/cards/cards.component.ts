@@ -53,7 +53,7 @@ export class CardsComponent implements OnInit {
     // });
     this.route.queryParams.subscribe(v => {
       this.query = v;
-      console.log(this.query);
+      console.log(this.query.ss);
     });
 
     this.dataService.getCharges(1).subscribe((charges) => {
@@ -71,7 +71,7 @@ export class CardsComponent implements OnInit {
     //     obj.first_name = this.full[i].first_name;
     //     obj.last_name = this.full[i].last_name;
     //     if (this.isInclude(this.namesSk, obj)) {
-    //     } else {
+    //     } else {   
     //       this.namesSk.push(obj);
     //     }
     //

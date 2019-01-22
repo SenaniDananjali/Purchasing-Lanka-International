@@ -12,6 +12,11 @@ export class SearchComponent implements OnInit {
   prefLocations: PrefLocations[];
   names: Names[];
   allLocs: AllLocs[];
+  dpForLocation: DpForLocation[];
+  nump: number;
+  numl: number;
+
+  count:number=0;
 
   constructor(private dataService: DataService) {
   }
@@ -37,6 +42,7 @@ export class SearchComponent implements OnInit {
       this.names = names;
     });
 
+    // console.log(this.names[1].)
   }
 
 
@@ -47,6 +53,26 @@ export class SearchComponent implements OnInit {
 
   advancedSearch() {
   }
+
+  // filterDpForLocation(num) {
+  //
+  //   for (this.numl = 0; this.numl < this.allLocs.length; numl++) {
+  //     for(nump=0;nump<this.prefLocations;nump++){
+  //       if (this.allLocs[numl].city == this.prefLocations[nump].loc) {
+  //         this.dpForLocation[this.count].loc=this.allLocs[numl].city;
+  //
+  //         this.dpForLocation[this.count].dp.push();
+  //       }
+  //     }
+  //
+  //   }
+  // }
+
+}
+
+interface DpForLocation {
+  loc: string;
+  dp: Names[];
 
 }
 

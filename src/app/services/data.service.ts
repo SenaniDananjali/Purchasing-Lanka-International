@@ -70,6 +70,7 @@ export class DataService {
   }
 
   getCharges(id) {
+
     return this.http.get('http://localhost/purchasing lanka/src/api.php?f=getCharges&id=' + id)
       .map(res => res.json());
   }

@@ -60,12 +60,17 @@ export class DataService {
       .map(res => res.json());
   }
 
+  getPrefferedLocations(){
+    return this.http.get('http://localhost/purchasing lanka/src/api.php?f=getPreferredLocations')
+      .map(res => res.json());
+  }
   getFullDetails() {
     return this.http.get('http://localhost/purchasing lanka/src/api.php?f=getFullDetails')
       .map(res => res.json());
   }
 
   getCharges(id) {
+
     return this.http.get('http://localhost/purchasing lanka/src/api.php?f=getCharges&id=' + id)
       .map(res => res.json());
   }

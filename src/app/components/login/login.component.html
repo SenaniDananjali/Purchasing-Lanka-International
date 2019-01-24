@@ -14,6 +14,6 @@
       <input type="password" class="form-control" id="password" [(ngModel)]="login.password" name="password" (blur)="confirmPassword()" required placeholder="Password" #pswd="ngModel"/>
     </div>
     <div [hidden]="pswd.valid || pswd.pristine" class="alert alert-danger">Password is required</div>
-    <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid" >Login</button>
+    <button type="submit" class="btn btn-success" [disabled]="!loginForm.form.valid" (click)="display(email.value, pswd.value)">Login</button>
   </form>
 </div>

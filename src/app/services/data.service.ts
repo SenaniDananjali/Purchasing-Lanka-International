@@ -69,4 +69,9 @@ export class DataService {
     return this.http.get('http://localhost/purchasing lanka/src/api.php?f=getCharges&id=' + id)
       .map(res => res.json());
   }
+
+  getAccountDetails(id){
+    return this.http.get('http://localhost/purchasing lanka/src/api.php?f=getAccountDetails&id=' + id)
+      .map(res => res.json());
+  }
 }

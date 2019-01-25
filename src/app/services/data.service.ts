@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map';
 export class DataService {
 
   constructor(public http: Http) {
-    console.log('data service runs...');
+    // console.log('data service runs...');
 
   }
 
@@ -45,13 +45,9 @@ export class DataService {
       .map(res => res.json());
   }
 
-  getStylistJob() {
-    return this.http.get('http://localhost/purchasing lanka/src/api.php?f=getJobRole')
-      .map(res => res.json());
-  }
 
   getJob() {
-    return this.http.get('http://localhost/purchasing lanka/src/api.php?f=job')
+      return this.http.get('http://localhost/purchasing lanka/src/api.php?f=job')
       .map(res => res.json());
   }
 

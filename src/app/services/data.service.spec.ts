@@ -123,4 +123,18 @@ describe('DataService', () => {
     });
 
   }));
+  
+  it('should return available contact details', async(() => {
+    service.getPhone().subscribe(x => {
+      expect(x).toContain({"id":"1","phone":"12345678","name":"Emma"});
+      expect(x).toContain({"id":"2","phone":"123466578","name":"Emma"});
+      expect(x).toContain({"id":"3","phone":"987638495","name":"Jacob"});
+      expect(x).toContain({"id":"4","phone":"764632084","name":"James"});
+
+
+      console.log('getPhone() success');
+
+    });
+
+  }));
 });

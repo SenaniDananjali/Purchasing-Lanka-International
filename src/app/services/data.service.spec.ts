@@ -107,4 +107,20 @@ describe('DataService', () => {
 
   }));
 
+  it('should return available preffered locations', async(() => {
+    service.getPrefferedLocations().subscribe(x => {
+      expect(x).toContain({"dp_id":"1","loc":"Badulla"});
+      expect(x).toContain({"dp_id":"1","loc":"Bandarawela"});
+      expect(x).toContain({"dp_id":"1","loc":"Welimada"});
+      expect(x).toContain({"dp_id":"2","loc":"Colombo1"});
+      expect(x).toContain({"dp_id":"2","loc":"Colombo2"});
+      expect(x).toContain({"dp_id":"2","loc":"Gampaha"});
+
+
+
+      console.log('getPrefferedLocations() success');
+
+    });
+
+  }));
 });

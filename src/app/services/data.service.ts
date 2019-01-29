@@ -28,7 +28,7 @@ export class DataService {
 
   }
 
-  getStylistSkills() {
+  getAccountDetails() {
     return this.http.get('http://localhost/purchasing lanka/src/api.php?f=getStylistSkills')
       .map(res => res.json());
 

@@ -26,7 +26,7 @@ export class CalendarComponent implements OnInit {
   cost: number;
   initial: number;
   count: number;
-
+phone_number:Phone[];
   // @Input() stylistId: number;
 
   constructor(private dataService: DataService, private route: ActivatedRoute) {
@@ -49,6 +49,12 @@ export class CalendarComponent implements OnInit {
     this.dataService.getBusyDates().subscribe((dates) => {
       this.dates = dates;
       this.datesForStylist(this.query.id);
+
+    });
+
+    this.dataService.getPhone().subscribe((phone_number) => {
+      this.phone_number = phone_number;
+      // this.datesForStylist(this.query.id);
 
     });
     // console.log(this.dates);
@@ -128,4 +134,10 @@ interface Dates {
 interface Busydates {
   busy: string;
   slot: string;
+}
+
+interface Phone{
+  id:number;
+  phone:number;
+  name:String;
 }

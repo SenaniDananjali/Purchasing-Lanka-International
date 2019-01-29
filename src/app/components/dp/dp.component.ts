@@ -34,10 +34,10 @@ export class DpComponent implements OnInit {
     this.dataService.getProfPic().subscribe((profPics) => {
       this.profPics = profPics;
     });
-    this.dataService.getStylistSkills().subscribe((stylistSkills) => {
-      this.stylistSkills = stylistSkills;
-      // console.log(stylistSkills.des);
-    });
+    // this.dataService.getStylistSkills().subscribe((stylistSkills) => {
+    //   this.stylistSkills = stylistSkills;
+    //   // console.log(stylistSkills.des);
+    // });
 
   }
 

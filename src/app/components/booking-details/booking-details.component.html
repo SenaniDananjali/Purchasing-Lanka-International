@@ -1,4 +1,4 @@
-<h5>Booking Details</h5>
+<h5>Contact Details</h5>
 <div class="container">
   <div class=" pt-2 pb-2 row ">
     <div class="col-sm-9">
@@ -11,38 +11,4 @@
       </div>
     </div>
   </div>
-  <div class=" pt-2 pb-2 row ">
-    <div class="col-sm-9">
-      <div class="input-group mb-2 mr-sm-2 mb-sm-0 form-group has-success">
-        <div class="input-group-addon">Skills</div>
-        <input class=" form-control" list="suggestions_skill" style="width:200px"
-               [(ngModel)]="skill">
-        <datalist id="suggestions_skill">
-          <option *ngFor="let skill of skills" [value]="skill.description"></option>
-        </datalist>
-      </div>
-    </div>
-  </div>
-  <div class=" pt-2 pb-2 row ">
-    <div class="col-sm-9">
-      <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <div class="input-group-addon">Stylist Locations</div>
-        <input class=" form-control form-control-success has-success" list="suggestions_loc" style="width:200px"
-               [(ngModel)]="loc">
-        <datalist id="suggestions_loc">
-          <option *ngFor="let loc of location" [value]="loc.city"></option>
-        </datalist>
-      </div>
-    </div>
-  </div>
-  <div class="row ">
-    <div class="col-lg-8"></div>
-    <div class="advancedSearch col-lg-3 col-lg-offset-9">
-
-      <button type="button" class="btn btn-primary" routerLink="../searchCards"
-              [queryParams]="{location:loc, ss:skill ,job:j}" data-dismiss="modal">Search</button>
-
-    </div>
-  </div>
-
 </div>

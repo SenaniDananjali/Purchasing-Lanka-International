@@ -60,10 +60,10 @@ export class DataService {
     return this.http.get('http://localhost/purchasing lanka/src/api.php?f=getPreferredLocations')
       .map(res => res.json());
   }
-  getFullDetails() {
-    return this.http.get('http://localhost/purchasing lanka/src/api.php?f=getFullDetails')
-      .map(res => res.json());
-  }
+  // getFullDetails() {
+  //   return this.http.get('http://localhost/purchasing lanka/src/api.php?f=getFullDetails')
+  //     .map(res => res.json());
+  // }
 
   getCharges(id) {
 
@@ -71,8 +71,8 @@ export class DataService {
       .map(res => res.json());
   }
 
-  getAccountDetails(id){
-    return this.http.get('http://localhost/purchasing lanka/src/api.php?f=getAccountDetails&id=' + id)
+  getPhone(){
+    return this.http.get('http://localhost/purchasing lanka/src/api.php?f=getPhonenumber')
       .map(res => res.json());
   }
 }

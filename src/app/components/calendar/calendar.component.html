@@ -134,7 +134,29 @@
           </button>
         </div>
         <div class="modal-body">
-          <app-booking-details></app-booking-details>
+
+          <div class="container">
+            <div class=" pt-2 pb-2 row ">
+              <div class="col-sm-9">
+                <div class="input-group mb-2 mr-sm-2 mb-sm-0 container ">
+                  <div  *ngFor="let d of phone_number">
+                    <div class="" *ngIf="d.id==query.id">
+                     <div>
+                       <h5>Contact Details of {{d.name}}</h5>
+                     </div><br>
+                      <div>
+                        <li>Contact number </li>
+                        <li>{{d.phone}}</li>
+
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

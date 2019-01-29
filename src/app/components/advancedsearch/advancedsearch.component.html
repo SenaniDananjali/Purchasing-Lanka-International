@@ -10,22 +10,22 @@
       </div>
     </div>
   </div>
-  <div class=" pt-2 pb-2 row ">
-    <div class="col-sm-9">
-      <div class="input-group mb-2 mr-sm-2 mb-sm-0 form-group has-success">
-        <div class="input-group-addon">Skills</div>
-        <input class=" form-control" list="suggestions_skill" style="width:200px"
-               [(ngModel)]="skill">
-        <datalist id="suggestions_skill">
-          <option *ngFor="let skill of skills" [value]="skill.description"></option>
-        </datalist>
-      </div>
-    </div>
-  </div>
+  <!--<div class=" pt-2 pb-2 row ">-->
+    <!--<div class="col-sm-9">-->
+      <!--<div class="input-group mb-2 mr-sm-2 mb-sm-0 form-group has-success">-->
+        <!--<div class="input-group-addon">Skills</div>-->
+        <!--<input class=" form-control" list="suggestions_skill" style="width:200px"-->
+               <!--[(ngModel)]="skill">-->
+        <!--<datalist id="suggestions_skill">-->
+          <!--<option *ngFor="let skill of skills" [value]="skill.description"></option>-->
+        <!--</datalist>-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</div>-->
   <div class=" pt-2 pb-2 row ">
     <div class="col-sm-9">
       <div class="input-group mb-2 mr-sm-2 mb-sm-0">
-        <div class="input-group-addon">Stylist Locations</div>
+        <div class="input-group-addon">Nearby Locations</div>
         <input class=" form-control form-control-success has-success" list="suggestions_loc" style="width:200px"
                [(ngModel)]="loc">
         <datalist id="suggestions_loc">
